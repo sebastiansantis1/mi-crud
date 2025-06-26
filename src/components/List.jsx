@@ -1,9 +1,9 @@
 import React from 'react';
 import Item from './Item';
 
-function List({items, deleteItem, editItem}){
+function List({ items, deleteItem, editItem }) {
     return (
-        <ul>
+        <ul style={{ padding: 0 }}>
             {items.map((item) => (
                 <Item
                     key={item.id}

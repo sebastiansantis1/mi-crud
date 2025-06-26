@@ -1,42 +1,190 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   padding: 2rem;
+  width: 100%;
+}
+
+/* Contenedor de la aplicación */
+.app {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Estilos para el título */
+h1 {
+  color: #333;
   text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.neon-effect {
+  color: #00d9ff;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
+  font-weight: 500;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Estilos para el formulario */
+.student-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #00d9ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 217, 255, 0.2);
+}
+
+.apreciacion-input {
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: not-allowed;
+}
+
+/* Estilos para la lista */
+.student-list-container {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: #ffffff;
+  color: #333;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-info p {
+  margin: 0.3rem 0;
+  color: #333;
+}
+
+.student-info strong {
+  color: #00a2ff;
+}
+
+.student-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Estilos para botones */
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white !important;
+  font-family: inherit;
+}
+
+.submit-btn {
+  background-color: #00a2ff;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+  background-color: #0088d4;
+}
+
+.edit-btn {
+  background-color: #00d9ff;
+}
+
+.edit-btn:hover {
+  background-color: #00c0e0;
+}
+
+.delete-btn {
+  background-color: #ff3b3b;
+}
+
+.delete-btn:hover {
+  background-color: #e03535;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-actions {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .student-actions button {
+    flex: 1;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .student-form {
+    padding: 1rem;
+  }
 }
