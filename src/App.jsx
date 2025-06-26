@@ -7,17 +7,41 @@ function App() {
     const [students, setStudents] = useState([]);
     const [studentToEdit, setStudentToEdit] = useState(null);
 
-    // Cargar datos de localStorage al iniciar
+    // 1. Cargar datos INICIALES con verificación de errores
     useEffect(() => {
-        const savedStudents = localStorage.getItem('students');
-        if (savedStudents) {
-            setStudents(JSON.parse(savedStudents));
-        }
+        const loadStudents = () => {
+            try {
+                const savedStudents = localStorage.getItem('students');
+                if (savedStudents) {
+                    const parsedStudents = JSON.parse(savedStudents);
+                    if (Array.isArray(parsedStudents)) {
+                        setStudents(parsedStudents);
+                    } else {
+                        console.error("Los datos no son un array válido:", parsedStudents);
+                        localStorage.removeItem('students');
+                    }
+                }
+            } catch (error) {
+                console.error("Error al cargar estudiantes:", error);
+                localStorage.removeItem('students');
+            }
+        };
+        
+        loadStudents();
     }, []);
 
-    // Guardar en localStorage cuando cambia la lista
+    // 2. Guardar datos CADA QUE CAMBIAN
     useEffect(() => {
-        localStorage.setItem('students', JSON.stringify(students));
+        const saveStudents = () => {
+            try {
+                localStorage.setItem('students', JSON.stringify(students));
+                console.log("Datos guardados:", students); // Para depuración
+            } catch (error) {
+                console.error("Error al guardar estudiantes:", error);
+            }
+        };
+        
+        saveStudents();
     }, [students]);
 
     const addOrUpdateStudent = (student) => {
